@@ -4,7 +4,14 @@
 
 首先要明白的是：值类型是在栈上的，而引用类型是放在堆上的
 
-unity中的ArrayList HashTable
+unity中的ArrayList HashTable ---> List
+      比如 arrayList.Add(new 结构体) //触发装箱
+
+      再比如 事件系统中
+            public event Action<object> OnPlayerStateChanged;
+            // 触发时
+            PlayerState state = new PlayerState();  // struct
+            OnPlayerStateChanged?.Invoke(state);  // 隐式装箱！
 
 tbd
 
