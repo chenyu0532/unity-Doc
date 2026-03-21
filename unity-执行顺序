@@ -1,0 +1,11 @@
+1。 父子节点分别有awake start，他们的执行顺序
+  父awake-->子awake-->父start-->子start
+
+(1)但是处于 SetActive(false) 状态的物体，其脚本组件的 Awake 和 Start 都不会执行
+如果后来 SetActive(true)，则再执行 Awake 和 Start 
+(2)如果组件初始enable=false时，Awake会执行，但是start不会执行，直至脚本被启用
+
+2。 外部调用一个脚本的自定义函数时，awake和start和自定义函数的执行顺序
+    	var myScript = gameObject.AddComponent<MyScript>(); // 1. 执行 Awake
+	myScript.MyCustomFunction();                        // 2. 执行自定义函数
+	// 3. 未来的某一帧，执行 Start
