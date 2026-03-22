@@ -4,7 +4,7 @@
 
 首先要明白的是：值类型是在栈上的，而引用类型是放在堆上的
 
-unity中的ArrayList HashTable ---> List
+unity中的ArrayList HashTable 最容易装箱
       比如 arrayList.Add(new 结构体) //触发装箱
 
       再比如 事件系统中
@@ -13,7 +13,16 @@ unity中的ArrayList HashTable ---> List
             PlayerState state = new PlayerState();  // struct
             OnPlayerStateChanged?.Invoke(state);  // 隐式装箱！
 
-tbd
 
+解决：1  用List Dictionary Queue Stack 
+
+      2  用泛型约束
+         	public void Process(T value) where T : struct
+      	{
+      	    // 直接操作值类型，无装箱/拆箱
+      	}
+      	Process(10);
+
+      3 避免使用老旧api
 
 
