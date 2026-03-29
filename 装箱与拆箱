@@ -1,4 +1,4 @@
-装箱：将值类型(int float struct等)转换到引用类型(class、object、数组、接口、委托等)的操作。
+装箱：将值类型(int float bool struct enum VectorX Color等)转换到引用类型(string、class、object、数组、接口、委托等)的操作。
       因为是在堆内存操作，所以会引发GC垃圾回收
 拆箱：相反操作，，但不释放堆上的对象
 
